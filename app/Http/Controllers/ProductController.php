@@ -34,19 +34,16 @@ class ProductController extends Controller
 
     public function store(Request $request): Response
     {
-        $this->authorize('edit', 'products');
         return $this->productService->store($request);
     }
 
     public function update(string $id, Request $request): Response
     {
-        $this->authorize('edit', 'products');
         return $this->productService->update($id, $request);
     }
 
     public function destroy(string $id): Response
     {
-        $this->authorize('edit', 'products');
         return $this->productService->destroy($id);
     }
 }
