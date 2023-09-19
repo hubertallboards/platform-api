@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Repositories;
 
 use App\Http\Resources\OrderResource;
+use App\Http\Resources\UserResource;
 use App\Models\Order;
 use App\Repositories\Contracts\OrderRepositoryInterface;
 use Illuminate\Http\Resources\Json\ResourceCollection;
@@ -20,11 +21,12 @@ class OrderRepository implements OrderRepositoryInterface
 
     public function index(): ResourceCollection
     {
-        return OrderResource::collection($this->orderModel::with(['user', 'orderItems.product'])->paginate(10));
+        $orders = $this->orderModel::with(['user', 'orderItems.product'])->paginate(10);
+        return OrderResource::collection($orders);
     }
 
     public function show(string $id): OrderResource
     {
-        return new OrderResource($this->orderModel::with(['user', 'orderItems.product'])->find($id));
+        return new OrderResource($this->orderModel::with(['user.roles', 'orderItems.product'])->find($id));
     }
 }
