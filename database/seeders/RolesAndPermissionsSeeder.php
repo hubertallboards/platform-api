@@ -32,13 +32,13 @@ class RolesAndPermissionsSeeder extends Seeder
         $employeeRole->syncPermissions(['view products', 'edit products', 'view orders', 'edit orders', 'view users']);
         $clientRole->givePermissionTo('view products');
 
-        $admin = User::find('32c9ce94-018a-4b30-9347-a4768dcc9068');
+        $admin = User::find('beb46519-c62d-4675-9088-37be560768c5');
         $admin->assignRole('admin');
 
-        $employee = User::find('4531289f-7fba-4ce9-90f2-79d9f1e7cff2');
+        $employee = User::find('2f505c2c-f8ee-4724-b5af-ed51219aaf88');
         $employee->assignRole('employee');
 
-        $client = User::find('7fc39a0a-86d5-4cda-b429-33757f5c1501');
+        $client = User::find('cf118e75-6556-41cd-940f-6f83f83c503c');
         $client->assignRole('client');
     }
 }

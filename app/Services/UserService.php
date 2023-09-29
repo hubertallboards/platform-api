@@ -70,9 +70,10 @@ class UserService implements UserServiceInterface
         $user = Auth::user();
 
         $jwt = $user->createToken('token')->plainTextToken;
-        $cookie = cookie('jwt', $jwt, 60 * 24);
+        $cookie = cookie('jwt', $jwt, 60 * 24 * 365);
 
         return response([
+            'user' => new UserResource($user->load('roles')),
             'jwt' => $jwt
         ])->withCookie($cookie);
     }

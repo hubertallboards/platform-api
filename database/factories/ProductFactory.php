@@ -25,7 +25,7 @@ class ProductFactory extends Factory
             'description' => $this->faker->text,
             'image' => $this->faker->imageUrl(),
             'price' => $this->faker->randomFloat(2, 100, 500),
-            'category_id' => $this->faker->randomElement(['dba28765-8e72-4a36-95b0-df2265061507', 'e42d89bd-bf17-492f-a558-5abccafaa1a5', 'ff5ea337-3216-403e-b8a1-9375cf0e4211']),
+            'category_id' => $this->faker->randomElement(['25dd6427-7757-48ec-9cc6-cd456eadd2d6', '3f96777e-e09d-4c46-a6d6-345dee91c0fa', '79f74ad3-fccd-4f22-b4d4-d90d2b4c52ab']),
         ];
     }
 }
