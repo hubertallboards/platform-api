@@ -22,9 +22,9 @@ class ProductController extends Controller
         $this->productService = $productService;
     }
 
-    public function index(): ResourceCollection
+    public function index(Request $request): ResourceCollection
     {
-        return $this->productRepository->index();
+        return $this->productRepository->index($request);
     }
 
     public function show(string $id): ProductResource
